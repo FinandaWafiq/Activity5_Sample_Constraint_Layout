@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     //Deklarasi variabel untuk EditText
     EditText edemail, edpassword;
 
+    TextView regis;
+
     //Deklarasi variabel untuk menyimpan email dan password
     String nama, password;
 
@@ -25,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        regis = findViewById(R.id.regis);
+
+        regis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent n = new Intent(getApplicationContext(),daftar.class);
+                startActivity(n);
+            }
+        });
 
         //menghubungkan variabel btnLogin dengan componen button pada layout
         btnLogin=findViewById(R.id.btSignIn);
@@ -82,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                         b.putString("b", password.trim());
 
                         //membuat objek intent berpindah activity dari mainactivity ke ActivityHasil
-                        Intent i = new Intent(getApplicationContext(), MainActivity2.class);
+                        Intent i = new Intent(getApplicationContext(), Pembukaa.class);
 
                         //memasukkan bundle kedalam intent untuk dikirimkan ke ActivityHasil
                         i.putExtras(b);
@@ -103,22 +116,33 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //Method untuk menampilkan menu.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        //Membuat kondisi jika yang dipilih adalah id mnDaftar.
-        if (item.getItemId() == R.id.mnDaftar)
-        {
-            //Method untuk memanggil activity "Daftar"
-            Intent i = new Intent(getApplicationContext(), daftar.class);
-            startActivity(i);
-    }
-        return super.onOptionsItemSelected(item);
-}
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        //Method untuk menampilkan menu.
+//
+//
+//        regis = findViewById(R.id.regis);
+//
+//        regis.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent nan = new Intent(getApplicationContext(), daftar.class);
+//                startActivity(nan);
+//            }
+//        });
+//        getMenuInflater().inflate(R.menu.menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        //Membuat kondisi jika yang dipilih adalah id mnDaftar.
+//        if (item.getItemId() == R.id.mnDaftar)
+//        {
+//            //Method untuk memanggil activity "Daftar"
+//            Intent i = new Intent(getApplicationContext(), daftar.class);
+//            startActivity(i);
+//    }
+//        return super.onOptionsItemSelected(item);
+//}
 }
