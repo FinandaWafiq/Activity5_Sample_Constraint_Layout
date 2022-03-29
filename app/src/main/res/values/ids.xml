@@ -2,4 +2,6 @@
 <resources>
     <item name="tambah" type="id" />
     <item name="edrepas" type="id" />
+    <item name="tvnama" type="id" />
+    <item name="tvnomor" type="id" />
 </resources>
